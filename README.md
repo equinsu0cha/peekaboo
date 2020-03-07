@@ -37,12 +37,12 @@ Then you will have a file named 'libpeekaboo_dr.so' under the build folder.
 ### Build with syscall trace plugin
 This component requires Dr.Memory. (https://github.com/DynamoRIO/drmemory/wiki/Downloads)
 ```
-DynamoRIO_DIR=($DynamoRIO_PATH) DrMemoryFramework_DIR=(DrMemory_drmf_path) cmake .. -DSYSCALL=ON
+DynamoRIO_DIR=($DynamoRIO_PATH) DrMemoryFramework_DIR=($DrMemory_drmf_path) cmake .. -DSYSCALL=ON
 make
 ```
-Before you run it, you need to add the directory of libdrsyscall.so to your LD_LIBRARY_PATH. It should be inside of DrMemory/drmf/lib64/ or DrMemory/drmf/lib32
+Before you run it, you need to add the directory of libdrsyscall.so to your LD_LIBRARY_PATH. It is likely to be inside DrMemory/drmf/lib64/ or DrMemory/drmf/lib32.
 ```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/libdrsyscall
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:($libdrsyscall_DIR)
 ```
 ### How to run
 Say, you want to run with command ls in 64-bit mode:
